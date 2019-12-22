@@ -8,9 +8,9 @@ Obstacles::Obstacles() : rect_(0, 0, 50, 50)
 	enemies_.setPosition(866, 550 - 325);
 	enemies_.scale(1.5, 1.5);
 
-        srand(time(NULL));
-        enemyOnScreen_ = false;
-        position_ = sf::Vector2f(enemies_.getPosition());
+  enemyOnScreen_ = false;
+  position_ = sf::Vector2f(enemies_.getPosition());
+	srand(time(NULL));
     }
 
 Obstacles::~Obstacles()
@@ -25,7 +25,7 @@ void Obstacles::update(int frames)
 {
   int k = rand() % 8;
 
-  if (frames % 8 == 0 && !enemyOnScreen_)
+  if (!enemyOnScreen_)
   {
     switch (k)
     {
@@ -52,14 +52,15 @@ void Obstacles::update(int frames)
 
 	if (enemyOnScreen_)
 	{
-		position_.x = position_.x - 4;
+		position_.x = position_.x - Constants::movingShift;
 		enemies_.setPosition(position_);
 
-		if (position_.x <= -50)
+		if (position_.x <= Constants::min_point)
 		{
 			enemyOnScreen_ = false;
-			enemies_.setPosition(866, 550-325);
+			enemies_.setPosition(Constants::window_width, 550-325);
 		}
+
 	}
 	position_ = sf::Vector2f(enemies_.getPosition());
 }

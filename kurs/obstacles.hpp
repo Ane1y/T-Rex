@@ -1,10 +1,12 @@
 #ifndef OBSTACLES_HPP
 #define OBSTACLES_HPP
 
+#include <iostream>
+
 #include <SFML/Graphics.hpp>
 
-#include <time.h>
-#include <iostream>
+//#include "randomizer.hpp"
+#include "constants.hpp"
 
 class Obstacles
 {

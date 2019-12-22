@@ -129,12 +129,17 @@
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Obstacles.cpp" />
+    <ClCompile Include="Randomizer.cpp" />
+    <ClCompile Include="resultHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="constants.hpp" />
     <ClInclude Include="dino.hpp" />
     <ClInclude Include="game.hpp" />
     <ClInclude Include="level.hpp" />
     <ClInclude Include="obstacles.hpp" />
+    <ClInclude Include="Randomizer.hpp" />
+    <ClInclude Include="resultHandler.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

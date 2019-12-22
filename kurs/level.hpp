@@ -4,14 +4,21 @@
 #include <iostream>
 #include <time.h>
 #include <string>
+
+#include "constants.hpp"
+#include "Randomizer.hpp"
+
 class Level
 {
 public:
 	Level();
-	~Level();
+	~Level() = default;
 	void draw(sf::RenderWindow *window);
 
 	void update(int frames);
+	void score();
+	int getScore();
+	sf::Text getScoreNote() const;
 
 private:
 	sf::Texture bg_;
@@ -21,13 +28,14 @@ private:
 	sf::Texture cl_;
 	sf::Sprite cloud_;
 	sf::Vector2f cloudPosition_;
-	
+
 	sf::Font font_;
 	int score_;
 	sf::Text scoreNote_;
 
 	int cont;
 
+	Randomizer random;
 //	sf::Texture 
 };
 

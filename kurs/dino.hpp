@@ -13,9 +13,6 @@ public:
 	void keyboard_input();
 
 	void update(int frames, Obstacles enemy);
-  
-	void score();
-
 	sf::Vector2f getPosition();
 
 private:
@@ -26,7 +23,6 @@ private:
 	sf::Sprite dino_;
 	sf::IntRect rect_;
 	int t_;                     //determine which step is: right or left
-	int score_;
 	bool jump_;
 	bool ground_;
 };

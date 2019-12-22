@@ -1,17 +1,21 @@
 #include "game.hpp"
 
-Game::Game() : window_(sf::VideoMode(816, 300), "Flow")
+Game::Game() :
+	window_(sf::VideoMode(816, 300), "Flow"),
+	result_()
 {
-  window_.setFramerateLimit(60);
-  frames_ = 0;
-	loop();
-	//gameOver();
+	window_.setFramerateLimit(60);
+	frames_ = 0;
+	if (!loop())
+	{
+		loop();
+	}
 }
 
 Game::~Game()
 {}
 
-void Game::loop()
+bool Game::loop()
 {
 	while (window_.isOpen())
 	{
@@ -27,9 +31,15 @@ void Game::loop()
 		render();
 		if (intersect())
 		{
-			gameOver(event);
+			if (gameOver(event))
+			{
+				window_.close();
+			}
+			else
+				return false;
 		}
 	}
+	return false;
 }
 
 void Game::update()
@@ -54,34 +64,57 @@ bool Game::intersect()
 {
 	auto dino_Pos = dino_.getPosition();
 	auto enemy_Pos = enemy_.getPosition();
-	if ((enemy_Pos.x == 50) && (dino_Pos.y > 450-300))
+	
+	int dino_x = dino_Pos.x;
+	int dino_y = dino_Pos.y;
+
+	int enemy_x = enemy_Pos.x;
+	int enemy_y = enemy_Pos.y;
+
+	if ((abs(enemy_Pos.x - dino_Pos.x) < 6) && (dino_Pos.y > 450-300))
 	{
 		return true;
 	}
 	return false;
 }
 
-void Game::gameOver(sf::Event event)
+bool Game::gameOver(sf::Event event)
 {	
 	sf::Font font;
 	sf::Text str;
+	sf::Text score = lvl_.getScoreNote();
+
 	font.loadFromFile("./Font/PixelMiners-KKal.otf");
+
 	str.setFont(font);
 	str.setString("Game   over");
 	str.setCharacterSize(30);
-	str.setFillColor(sf::Color::Black);
+	str.setFillColor(sf::Color(83, 83, 83));
 	str.setPosition(300, 100);
+
+	score.setFont(font);
+	score.setCharacterSize(20);
+	score.setPosition(750, 5);
+
 	window_.clear(sf::Color(200, 200, 200));
+
 	window_.draw(str);
+	window_.draw(score);
 	window_.display();
 	
-	/*
-	if (event.type == sf::Keyboard::R)
+	result_.update(lvl_.getScore());
+	result_.print();
+
+	char key;
+	std::cin >> key;
+	if (key == 'R')
 	{
-		loop();
-	} else {
-	  */
+		return false;
+	}
+	return true;
+}
 
-	system("pause");
-
-}	
+bool Game::getRestartGame() const
+{
+	return restartGame;
+}
