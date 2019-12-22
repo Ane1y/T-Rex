@@ -1,9 +1,8 @@
 #include "level.hpp"
 
 Level::Level() :
-	score_(0),
-	cont(0),
-  random()
+         	      score_(0),
+	              cont(0)
 {
   bg_.loadFromFile("./Images/2x-horizon.png");
   bg_.setRepeated(1);
@@ -68,7 +67,7 @@ void Level::score()
 
 int Level::getScore()
 {
-	return score_;
+	return score_ / 10;
 }
 
 sf::Text Level::getScoreNote() const

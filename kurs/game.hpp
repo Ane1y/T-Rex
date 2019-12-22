@@ -9,9 +9,9 @@ class Game
 {
 public:
 	Game();
-	~Game();
+	~Game() = default;
 
-	bool loop();
+	void loop();
 	void update();
 	void render();
 	bool intersect();
@@ -24,8 +24,8 @@ private:
 	Obstacles enemy_;
 	ResultHandler result_;
 	
-	int frames;
-	bool restartGame;
+	int frames_;
+	bool restartGame_;
 };
 
 #endif

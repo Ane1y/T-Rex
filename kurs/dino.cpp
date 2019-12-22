@@ -2,17 +2,17 @@
 
 Dino::Dino() : velocity_(0, 0),
                gravity_(0, 0.98),
-               rect_(0, 0, 50, 43)
+	             rect_(0, 0, 50, 43),
+	             t_(0),
+	             jump_(false),
+               ground_(true)
 {
-  jump_ = false;
-  ground_ = true;
   texture_.loadFromFile("./Images/dino.png");
 	dino_.scale(1.5, 1.5);
   dino_.setTexture(texture_);
   dino_.setTextureRect(rect_);
   dino_.setPosition(50, 550-320);
   position_ = sf::Vector2f(dino_.getPosition());
-  t_ = 0;
 }
 
 Dino::~Dino()

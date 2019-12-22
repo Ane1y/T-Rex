@@ -22,9 +22,11 @@ private:
 	sf::Texture texture_;
 	sf::Sprite dino_;
 	sf::IntRect rect_;
+
 	int t_;                     //determine which step is: right or left
 	bool jump_;
 	bool ground_;
+
 };
 
 #endif

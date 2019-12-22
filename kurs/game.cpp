@@ -1,21 +1,17 @@
 #include "game.hpp"
 
 Game::Game() :
-	window_(sf::VideoMode(816, 300), "Flow"),
-	result_()
+            	window_(sf::VideoMode(816, 300), "Flow"),
+	            result_(),
+             	frames_(0), 
+	            restartGame_(false)
+
 {
 	window_.setFramerateLimit(60);
-	frames_ = 0;
-	if (!loop())
-	{
-		loop();
-	}
+  loop();
 }
 
-Game::~Game()
-{}
-
-bool Game::loop()
+void Game::loop()
 {
 	while (window_.isOpen())
 	{
@@ -34,12 +30,12 @@ bool Game::loop()
 			if (gameOver(event))
 			{
 				window_.close();
+			} else {
+				restartGame_ = true;
 			}
-			else
-				return false;
+			return;
 		}
 	}
-	return false;
 }
 
 void Game::update()
@@ -116,5 +112,5 @@ bool Game::gameOver(sf::Event event)
 
 bool Game::getRestartGame() const
 {
-	return restartGame;
+	return restartGame_;
 }

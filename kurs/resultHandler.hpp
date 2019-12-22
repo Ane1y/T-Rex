@@ -7,12 +7,15 @@
 #include <iterator>
 #include <fstream>
 
+#include <algorithm>
 struct result_t
 {
 	std::string name;
-	int result;	
-	result_t& operator= (result_t &);
+	int result;	/*
+	result_t& operator= (const result_t &);
+	result_t& operator= (result_t &&);
 	bool operator== (const result_t &) const;
+	*/
 
 };
 
@@ -32,6 +35,6 @@ private:
 };
 
 std::ostream& operator<< (std::ostream& out, const result_t &t);
-bool operator > (const result_t &rhs, const result_t &lhs);
+//bool operator > (const result_t &rhs, const result_t &lhs);
 
 #endif

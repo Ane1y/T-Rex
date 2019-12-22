@@ -5,7 +5,6 @@
 
 #include <SFML/Graphics.hpp>
 
-//#include "randomizer.hpp"
 #include "constants.hpp"
 
 class Obstacles

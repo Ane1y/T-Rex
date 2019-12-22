@@ -6,7 +6,6 @@
 #include <string>
 
 #include "constants.hpp"
-#include "Randomizer.hpp"
 
 class Level
 {
@@ -35,8 +34,6 @@ private:
 
 	int cont;
 
-	Randomizer random;
-//	sf::Texture 
 };
 
 #endif

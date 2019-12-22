@@ -4,8 +4,13 @@ int main()
 {
 	try
 	{
-		Game StartGame;
-	}
+		bool newGame = true;
+		while (newGame)
+		{
+			Game StartGame;
+			newGame = StartGame.getRestartGame();
+		}
+  }
 
 	catch (const std::exception &e)
 {
