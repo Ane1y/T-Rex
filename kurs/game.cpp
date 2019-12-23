@@ -75,7 +75,7 @@ bool Game::intersect()
 }
 
 bool Game::gameOver(sf::Event event)
-{	
+{
 	sf::Font font;
 	sf::Text str;
 	sf::Text score = lvl_.getScoreNote();
@@ -97,13 +97,14 @@ bool Game::gameOver(sf::Event event)
 	window_.draw(str);
 	window_.draw(score);
 	window_.display();
-	
+
 	result_.update(lvl_.getScore());
 	result_.print();
 
 	char key;
+	std::cout << "Press R to restart game, any key to exit\n";
 	std::cin >> key;
-	if (key == 'R')
+	if (key == 'R' || key == 'r')
 	{
 		return false;
 	}

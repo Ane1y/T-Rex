@@ -11,6 +11,7 @@ namespace Constants
 	static const int movingShift = 6;
 	static const int jump_height = 230;
 
+	static const int maxRecordList = 10;
 };
 
 #endif
