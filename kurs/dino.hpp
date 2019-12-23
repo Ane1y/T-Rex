@@ -7,7 +7,7 @@ class Dino
 {
 public:
 	Dino();
-	~Dino();
+	~Dino() = default;
 
 	void draw(sf::RenderWindow *window);
 	void keyboard_input();

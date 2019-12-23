@@ -15,9 +15,6 @@ Dino::Dino() : velocity_(0, 0),
   position_ = sf::Vector2f(dino_.getPosition());
 }
 
-Dino::~Dino()
-{}
-
 void Dino::draw(sf::RenderWindow *window)
 {
   window->draw(dino_);

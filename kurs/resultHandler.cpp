@@ -19,8 +19,6 @@ ResultHandler::ResultHandler()
 	}
 }
 
-
-
 void ResultHandler::update(const int score)
 {
 	std::ofstream resultFile;

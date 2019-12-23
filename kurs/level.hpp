@@ -1,9 +1,8 @@
 #ifndef LEVEL_HPP
 #define LEVEL_HPP
 #include <SFML/Graphics.hpp>
-#include <iostream>
+
 #include <time.h>
-#include <string>
 
 #include "constants.hpp"
 

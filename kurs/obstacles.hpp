@@ -1,17 +1,14 @@
 #ifndef OBSTACLES_HPP
 #define OBSTACLES_HPP
 
-#include <iostream>
-
 #include <SFML/Graphics.hpp>
-
 #include "constants.hpp"
 
 class Obstacles
 {
 public:
 	Obstacles();
-	~Obstacles();
+	~Obstacles() = default;
 	void draw(sf::RenderWindow *window);
 	void update(int frames);
 	sf::Vector2f getPosition();

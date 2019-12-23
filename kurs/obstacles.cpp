@@ -11,10 +11,7 @@ Obstacles::Obstacles() : rect_(0, 0, 50, 50)
   enemyOnScreen_ = false;
   position_ = sf::Vector2f(enemies_.getPosition());
 	srand(time(NULL));
-    }
-
-Obstacles::~Obstacles()
-{}
+}
 
 void Obstacles::draw(sf::RenderWindow *window)
 {

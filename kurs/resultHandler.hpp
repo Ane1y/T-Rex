@@ -1,12 +1,13 @@
 #ifndef RESULT_HANDLER_HPP
 #define RESULT_HANDLER_HPP
 
-#include <string>
-#include <vector>
+#include <algorithm>
+#include <fstream>
 #include <iostream>
 #include <iterator>
-#include <fstream>
-#include <algorithm>
+#include <string>
+#include <vector>
+
 #include "constants.hpp"
 
 struct result_t
