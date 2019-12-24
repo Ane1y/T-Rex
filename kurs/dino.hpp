@@ -1,6 +1,8 @@
 #ifndef DINO_HPP
 #define DINO_HPP
 
+#include <SFML/Audio.hpp>
+
 #include "obstacles.hpp"
 
 class Dino
@@ -22,6 +24,9 @@ private:
 	sf::Texture texture_;
 	sf::Sprite dino_;
 	sf::IntRect rect_;
+
+	sf::SoundBuffer buffer_;
+	sf::Sound sound_;
 
 	int t_;                     //determine which step is: right or left
 	bool jump_;

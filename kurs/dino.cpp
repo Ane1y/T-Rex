@@ -13,6 +13,9 @@ Dino::Dino() : velocity_(0, 0),
   dino_.setTextureRect(rect_);
   dino_.setPosition(50, 550-320);
   position_ = sf::Vector2f(dino_.getPosition());
+
+	buffer_.loadFromFile("./Sounds/button-19.wav");
+	sound_.setBuffer(buffer_);
 }
 
 void Dino::draw(sf::RenderWindow *window)
@@ -24,6 +27,7 @@ void Dino::keyboard_input()
 {
   if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) && ground_)
   {
+		sound_.play();
     velocity_.y = -16;
     jump_ = true;
     ground_ = false;
