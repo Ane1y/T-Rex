@@ -99,8 +99,14 @@ bool Game::gameOver(sf::Event event)
 	window_.draw(score);
 	window_.display();
 
-	result_.update(lvl_.getScore());
+	std::string name;
+	std::cout << "Enter your name\n";
+	std::cin >> name;
+	result_.update(lvl_.getScore(), name);
+	std::cout << "Top 10 players:";
 	result_.print();
+	std::cout << "You have scored:\n";
+	result_.printPersonRecords(name);
 
 	char key;
 	std::cout << "Press R to restart game, any key to exit\n";

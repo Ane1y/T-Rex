@@ -19,15 +19,14 @@ ResultHandler::ResultHandler()
 	}
 }
 
-void ResultHandler::update(const int score)
-{
+void ResultHandler::update(const int score, std::string name)
+{	
+	const result_t res{name, score};
 	std::ofstream resultFile;
 	resultFile.open("result.txt", std::ios::app);
-	result_t res{"name", score};
-	std::cout << "Enter your name\n";
-	std::cin >> res.name;
-	result_.push_back(res);
 	resultFile << res.name << " " << res.result << "\n";
+	
+	result_.push_back(res);
 
 	std::sort(result_.begin(), result_.end(), [](const result_t &lhs, const result_t &rhs)
 	{ return lhs.result > rhs.result; });
@@ -44,9 +43,17 @@ void ResultHandler::update(const int score)
 
 }
 
-void ResultHandler::print()
+void ResultHandler::printPersonRecords(std::string name) 
 {
-	std::cout << "Top 10 players:";
+
+	auto it = std::copy_if(result_.begin(), result_.end(), std::ostream_iterator<result_t>(std::cout, "\n"), [&name](const result_t &t)
+	{ return (name == t.name); });
+
+}
+
+void ResultHandler::print() const 
+{
+
 	std::copy(result_.begin(), result_.end(), std::ostream_iterator<result_t>(std::cout, "\n"));
   std::cout << std::endl;
 }

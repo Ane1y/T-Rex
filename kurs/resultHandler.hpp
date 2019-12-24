@@ -22,8 +22,9 @@ public:
 	ResultHandler();
 	~ResultHandler() = default;
 
-	void update(const int score);
-	void print();
+	void update(const int score, std::string name);
+	void printPersonRecords(std::string name);
+	void print() const;
 
 private:
 	std::vector<result_t> result_;
