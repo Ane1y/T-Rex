@@ -12,7 +12,7 @@ public:
 	void draw(sf::RenderWindow *window);
 	void keyboard_input();
 
-	void update(int frames, Obstacles enemy);
+	void update(int frames);
 	sf::Vector2f getPosition();
 
 private:

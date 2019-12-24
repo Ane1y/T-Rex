@@ -18,7 +18,7 @@ void Obstacles::draw(sf::RenderWindow *window)
   window->draw(enemies_);
 }
 
-void Obstacles::update(int frames)
+void Obstacles::update(int frames, int acceleration)
 {
   int k = rand() % 8;
 
@@ -49,7 +49,7 @@ void Obstacles::update(int frames)
 
 	if (enemyOnScreen_)
 	{
-		position_.x = position_.x - Constants::movingShift;
+		position_.x = position_.x - Constants::movingShift - acceleration;
 		enemies_.setPosition(position_);
 
 		if (position_.x <= Constants::min_point)

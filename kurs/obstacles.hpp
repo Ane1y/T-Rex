@@ -10,7 +10,7 @@ public:
 	Obstacles();
 	~Obstacles() = default;
 	void draw(sf::RenderWindow *window);
-	void update(int frames);
+	void update(int, int);
 	sf::Vector2f getPosition();
 
 private:

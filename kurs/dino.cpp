@@ -30,7 +30,7 @@ void Dino::keyboard_input()
   }
 }
 
-void Dino::update(int frames , Obstacles enemy)
+void Dino::update(int frames)
 {
   position_ += velocity_;
   if (!ground_)

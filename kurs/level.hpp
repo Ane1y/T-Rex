@@ -1,9 +1,9 @@
 #ifndef LEVEL_HPP
 #define LEVEL_HPP
 #include <SFML/Graphics.hpp>
+#include <iostream>
 
 #include <time.h>
-
 #include "constants.hpp"
 
 class Level
@@ -15,8 +15,12 @@ public:
 
 	void update(int frames);
 	void score();
-	int getScore();
+
+	void increaseAcceleration();
+
+	int getScore() const;
 	sf::Text getScoreNote() const;
+	int getAcceleration() const;
 
 private:
 	sf::Texture bg_;
@@ -31,8 +35,7 @@ private:
 	int score_;
 	sf::Text scoreNote_;
 
-	int cont;
-
+	int acceleration_;
 };
 
 #endif
