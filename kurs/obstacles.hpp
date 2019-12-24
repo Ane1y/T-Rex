@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "constants.hpp"
+#include "random.hpp"
 
 class Obstacles
 {
@@ -19,5 +20,7 @@ private:
 	sf::IntRect rect_;
 	sf::Vector2f position_;
 	bool enemyOnScreen_;
+
+	Random randomizer_;
 }; 
 #endif

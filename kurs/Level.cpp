@@ -24,7 +24,6 @@ Level::Level() :
 	scoreNote_.setCharacterSize(20);
 	scoreNote_.setFillColor(sf::Color(83, 83, 83));
 	scoreNote_.setPosition(750, 5);
-	srand(time(NULL));
 }
 
 void Level::draw(sf::RenderWindow *window)
@@ -52,7 +51,7 @@ void Level::update(int frames)
 
 	if (cloudPosition_.x <= Constants::min_point)
 	{
-		int height = rand() % 100;
+		int height = randomizer_(0, 120);
 		cloud_.setPosition(866, 350 - height);
 	}
 	cloudPosition_ = sf::Vector2f(cloud_.getPosition());
@@ -71,8 +70,6 @@ void Level::increaseAcceleration()
 {
 	int n = score_;
 	n = n / 1000;
-	std::cout << n;
-
 	acceleration_ = n;
 }
 

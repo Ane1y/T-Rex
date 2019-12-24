@@ -3,8 +3,8 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
-#include <time.h>
 #include "constants.hpp"
+#include "random.hpp"
 
 class Level
 {
@@ -34,7 +34,7 @@ private:
 	sf::Font font_;
 	int score_;
 	sf::Text scoreNote_;
-
+	Random randomizer_;
 	int acceleration_;
 };
 

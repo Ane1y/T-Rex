@@ -10,7 +10,6 @@ Obstacles::Obstacles() : rect_(0, 0, 50, 50)
 
   enemyOnScreen_ = false;
   position_ = sf::Vector2f(enemies_.getPosition());
-	srand(time(NULL));
 }
 
 void Obstacles::draw(sf::RenderWindow *window)
@@ -20,7 +19,7 @@ void Obstacles::draw(sf::RenderWindow *window)
 
 void Obstacles::update(int frames, int acceleration)
 {
-  int k = rand() % 8;
+  int k = randomizer_(0, 3);
 
   if (!enemyOnScreen_)
   {
